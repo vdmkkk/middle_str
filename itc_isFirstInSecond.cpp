@@ -25,20 +25,11 @@ string itc_slice_str(string str, int start, int ending){
 }
 
 
-long long itc_find_str(string str1, string str2){
-    long long res = -1;
-    for (int i = 0; i < itc_len(str1); i++){
-        if (itc_slice_str(str1, i, i + itc_len(str2) - 1) == str2){
-            res = i;
-            break;
-        }
-    }
-    return res;
-}
-
-
 bool itc_isFirstInSecond(string s1, string s2){
     if (s1 == "" || s2 == "") return false;
-    if (itc_find_str(s2, s1) == -1) return false;
-    return true;
+    for (int i=0; i < itc_len(s2); i++) {
+        cout << itc_slice_str(s2, i, i + itc_len(s1) - 1) << endl;
+        if (itc_slice_str(s2, i, i + itc_len(s1) - 1) == s1) return true;
+    }
+    return false;
 }
