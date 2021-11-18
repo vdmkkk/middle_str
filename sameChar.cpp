@@ -1,7 +1,6 @@
 #include "middle_str.h"
 
 char itc_sameChar(string str){
-    char res;
     int counter = 0;
 
     int i = 0;
