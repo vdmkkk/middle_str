@@ -1,21 +1,13 @@
 #include "middle_str.h"
 
-string itc_rmFreeSpace(string str)
-{
-    string str1 = "";
-    string str2 = "";
-    int i = 0;
-    while (str[i] != '\0') {
-        if (str[i] == ' ') {
-            str2 += str[i];
-        }
-        else {
-            if (str2 != "") str2 = " ";
-            str1 += str2;
-            str2 = "";
-            str1 += str[i];
-        }
+string itc_rmFreeSpace(string str){
+    long long i = 0;
+    string newstr = "";
+    while(str[i] != '\0')  {
+        if((str[i] == 32 && str[i - 1] != 32) || str[i] < 32 || str[i] > 32) newstr += str[i];
         i += 1;
     }
-    return str1;
+    if (newstr[0] == 32) newstr = itc_slice_str(newstr, 1, itc_len(newstr) - 1);
+    if((newstr[itc_len(newstr) - 1]) == 32) newstr = itc_slice_str(newstr, 0, itc_len(newstr) - 2);
+    return newstr;
 }
