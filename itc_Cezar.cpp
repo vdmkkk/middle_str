@@ -3,7 +3,6 @@
 string itc_Cezar(string str, int k) {
     if (k == 0) return str;
     int i = 0;
-    char newChar;
     string res = "";
     while (str[i] != '\0'){
         if (str[i] >= 'a' && str[i] <= 'z'){
